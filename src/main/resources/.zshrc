@@ -1,0 +1,2 @@
+export DB_USERNAME=root
+export DB_PASSWORD=19890417Qq!
