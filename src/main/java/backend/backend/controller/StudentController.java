@@ -3,6 +3,7 @@ package backend.backend.controller;
 import backend.backend.exception.StudentNotFoundException;
 import backend.backend.model.Student;
 import backend.backend.service.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,12 +30,12 @@ public class StudentController {
     }
 
     @PostMapping
-    public Student createStudent(@RequestBody Student student) {
+    public Student createStudent(@Valid @RequestBody Student student) {
         return studentService.saveStudent(student);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Student> updateStudent(@PathVariable Long id, @RequestBody Student studentDetails) {
+    public ResponseEntity<Student> updateStudent(@PathVariable Long id, @Valid @RequestBody Student studentDetails) {
         Student student = studentService.getStudentById(id);
         student.setName(studentDetails.getName());
         student.setSex(studentDetails.getSex());

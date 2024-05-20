@@ -21,7 +21,7 @@ public class StudentService {
 
     public Student getStudentById(Long id) {
         return studentRepository.findById(id)
-                .orElseThrow(() -> new StudentNotFoundException(id));
+                .orElseThrow(() -> new StudentNotFoundException("this one is not found"));
     }
 
     public Student saveStudent(Student student) {
