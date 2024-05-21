@@ -1,4 +1,4 @@
-package backend.backend.model;
+package backend.backend.students;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -13,9 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "professors")
-
-public class Professor {
+@Table(name = "students")
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

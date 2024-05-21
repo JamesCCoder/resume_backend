@@ -1,15 +1,10 @@
-package backend.backend.service;
+package backend.backend.professors;
 
 import backend.backend.exception.ProfessorNotFoundException;
-import backend.backend.exception.ProfessorNotFoundException;
-import backend.backend.model.Professor;
-import backend.backend.repository.ProfessorRepository;
-import backend.backend.repository.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProfessorService {

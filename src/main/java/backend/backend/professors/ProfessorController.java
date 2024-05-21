@@ -1,10 +1,8 @@
-package backend.backend.controller;
+package backend.backend.professors;
 
 import backend.backend.exception.ProfessorNotFoundException;
-import backend.backend.model.Professor;
-import backend.backend.model.Professor;
-import backend.backend.service.ProfessorService;
-import backend.backend.service.ProfessorService;
+import backend.backend.professors.Professor;
+import backend.backend.professors.ProfessorService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

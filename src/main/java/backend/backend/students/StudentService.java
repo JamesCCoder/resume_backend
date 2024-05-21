@@ -1,13 +1,10 @@
-package backend.backend.service;
+package backend.backend.students;
 
 import backend.backend.exception.StudentNotFoundException;
-import backend.backend.model.Student;
-import backend.backend.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class StudentService {

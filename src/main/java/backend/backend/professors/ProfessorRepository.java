@@ -1,7 +1,6 @@
-package backend.backend.repository;
+package backend.backend.professors;
 
-import backend.backend.model.Professor;
-import backend.backend.model.Student;
+import backend.backend.professors.Professor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProfessorRepository extends JpaRepository<Professor, Long> {

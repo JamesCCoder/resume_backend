@@ -1,8 +1,8 @@
-package backend.backend.controller;
+package backend.backend.students;
 
 import backend.backend.exception.StudentNotFoundException;
-import backend.backend.model.Student;
-import backend.backend.service.StudentService;
+import backend.backend.students.Student;
+import backend.backend.students.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
