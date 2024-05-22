@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "professors")
-
 public class Professor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
