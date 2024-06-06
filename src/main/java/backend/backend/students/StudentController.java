@@ -13,7 +13,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/students")
 //@CrossOrigin(origins = "http://localhost:3000")
-@CrossOrigin(origins = {"https://www.jamesresume.online","http://localhost:3000"})
+@CrossOrigin(origins = {
+        "https://www.jamesresume.online",
+        "http://localhost:3000",
+        "https://james-resume-backend-9a3094b7738e.herokuapp.com"
+})
 public class StudentController {
 
     @Autowired
