@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = {
         "https://www.jamesresume.online",
         "http://localhost:3000",
+        "https://james-resume-av9x.vercel.app/",
         "https://james-resume-backend-9a3094b7738e.herokuapp.com"
 })
 public class AuthenticationController {
