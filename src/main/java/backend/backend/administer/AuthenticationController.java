@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = {"http://www.jamesresume.online","http://localhost:3000"})
+@CrossOrigin(origins = {"https://www.jamesresume.online","http://localhost:3000"})
 public class AuthenticationController {
     @Autowired
     private AdministerService administerService;
