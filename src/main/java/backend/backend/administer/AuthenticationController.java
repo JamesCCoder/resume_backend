@@ -1,6 +1,7 @@
 package backend.backend.administer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,9 +15,21 @@ import org.springframework.web.bind.annotation.*;
 public class AuthenticationController {
     @Autowired
     private AdministerService administerService;
-
-    @PostMapping("/login")
-    public boolean login(@RequestBody Administer administer) {
-        return administerService.validateUser(administer.getUsername(), administer.getPassword());
+    @PostMapping("/register")
+    public ResponseEntity<?> registerUser(@RequestBody Administer administer) {
+        if (administerService.findByUsername(administer.getUsername()) != null) {
+            return ResponseEntity.badRequest().body("Username is already taken!");
+        }
+        administerService.save(administer);
+        return ResponseEntity.ok("User registered successfully");
     }
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(@RequestBody Administer administer) {
+        boolean isValidUser = administerService.validateUser(administer.getUsername(), administer.getPassword());
+        if (!isValidUser) {
+            return ResponseEntity.badRequest().body("Invalid username or password!");
+        }
+        return ResponseEntity.ok("Login successful");
+    }
+
 }
