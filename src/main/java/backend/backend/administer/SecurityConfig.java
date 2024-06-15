@@ -14,18 +14,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebSecurity
 public class SecurityConfig {
 
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http
-//                .csrf(AbstractHttpConfigurer::disable)
-//                .authorizeHttpRequests(auth -> auth
-//                        .requestMatchers("/api/register", "/api/login").permitAll()
-//                        .anyRequest().authenticated()
-//                )
-//                .formLogin(AbstractHttpConfigurer::disable);
-//
-//        return http.build();
-//    }
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/register", "/api/login").permitAll()
+                        .anyRequest().authenticated()
+                )
+                .formLogin(AbstractHttpConfigurer::disable);
+
+        return http.build();
+    }
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
