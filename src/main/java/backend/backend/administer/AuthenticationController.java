@@ -29,14 +29,14 @@ public class AuthenticationController {
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody Administer administer) {
         boolean isValidUser = administerService.validateUser(administer.getUsername(), administer.getPassword());
-        return ResponseEntity.ok("Login successful");
-//        if (!isValidUser) {
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid username or password!");
-//        }
+//        return ResponseEntity.ok("Login successful");
+        if (!isValidUser) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid username or password!");
+        }
 //        if (isValidUser) {
 //            return ResponseEntity.ok("Login successful");
 //        }
-//        return ResponseEntity.ok("Login successful");
+        return ResponseEntity.ok("Login successful");
     }
 
     @RequestMapping(method = RequestMethod.OPTIONS, value = "/register")
