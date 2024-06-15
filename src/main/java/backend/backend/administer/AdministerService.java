@@ -11,16 +11,30 @@ public class AdministerService {
     @Autowired
     private AdministerRepository repository;
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+//    @Autowired
+//    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+//    public boolean validateUser(String username, String password) {
+//        Administer administer = repository.findByUsername(username);
+//        return administer != null && bCryptPasswordEncoder.matches(password, administer.getPassword());
+//    }
+//
+//    public Administer save(Administer administer) {
+//        administer.setPassword(bCryptPasswordEncoder.encode(administer.getPassword()));
+//        return repository.save(administer);
+//    }
+//
+//    public Administer findByUsername(String username) {
+//        return repository.findByUsername(username);
+//    }
 
     public boolean validateUser(String username, String password) {
         Administer administer = repository.findByUsername(username);
-        return administer != null && bCryptPasswordEncoder.matches(password, administer.getPassword());
+        return administer != null && administer.getPassword().equals(password);
     }
 
     public Administer save(Administer administer) {
-        administer.setPassword(bCryptPasswordEncoder.encode(administer.getPassword()));
+        // 直接保存密码，不进行加密
         return repository.save(administer);
     }
 
