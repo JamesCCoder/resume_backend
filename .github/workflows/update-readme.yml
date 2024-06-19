@@ -1,0 +1,38 @@
+name: Update README with file structure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install tree
+        run: sudo apt-get install -y tree
+
+      - name: Generate file structure
+        run: tree -L 2 > structure.txt
+
+      - name: Update README
+        run: |
+          echo "# Project File Structure" > README.md
+          echo "\`\`\`" >> README.md
+          cat structure.txt >> README.md
+          echo "\`\`\`" >> README.md
+
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git add README.md
+          git commit -m 'Update README with file structure'
+          git push origin HEAD:main
