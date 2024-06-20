@@ -1,6 +1,8 @@
 # Project File Structure
 ```
 .
+├── Dockerfile
+├── README.md
 ├── mvnw
 ├── mvnw.cmd
 ├── pom.xml
@@ -10,5 +12,5 @@
 ├── structure.txt
 └── system.properties
 
-3 directories, 5 files
+3 directories, 7 files
 ```
