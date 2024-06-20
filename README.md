@@ -3,6 +3,7 @@
 .
 ├── Dockerfile
 ├── README.md
+├── docker-compose.yml
 ├── mvnw
 ├── mvnw.cmd
 ├── pom.xml
@@ -12,5 +13,5 @@
 ├── structure.txt
 └── system.properties
 
-3 directories, 7 files
+3 directories, 8 files
 ```
