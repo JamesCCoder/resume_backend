@@ -5,10 +5,13 @@ FROM eclipse-temurin:21-jre
 WORKDIR /app
 
 # Copy the jar file into the container at /app
-COPY target/your-app.jar /app/your-app.jar
+COPY target/backend-0.0.1-SNAPSHOT.jar /app/app.jar
+
+# 复制 application.properties 文件到容器中
+COPY src/main/resources/application.properties /app/application.properties
 
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
 
 # Run the jar file
-ENTRYPOINT ["java", "-jar", "/app/your-app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar", "--spring.config.location=/app/application.properties"]

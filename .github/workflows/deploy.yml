@@ -1,0 +1,50 @@
+name: Build and Push Docker Image to ECR
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin' # 也可以选择 'zulu' 或 'adopt'
+          java-version: '21.0.3'
+
+      - name: Install dependencies
+        run: |
+          ./mvnw install
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Log in to Amazon ECR
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 637423452251.dkr.ecr.us-east-1.amazonaws.com
+
+      - name: Build Docker image
+        run: |
+          docker build -t students_backend .
+
+      - name: Tag Docker image
+        run: |
+          docker tag students_backend:latest 637423452251.dkr.ecr.us-east-1.amazonaws.com/resume_students_backend
+
+      - name: Verify Docker image tagging
+        run: |
+          docker images
+
+      - name: Push Docker image to ECR
+        run: |
+          docker push 637423452251.dkr.ecr.us-east-1.amazonaws.com/resume_students_backend
