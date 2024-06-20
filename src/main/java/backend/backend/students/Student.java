@@ -3,6 +3,7 @@ package backend.backend.students;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import org.springframework.beans.factory.annotation.Value;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -13,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "students")
+@Table(name = "resume_students")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

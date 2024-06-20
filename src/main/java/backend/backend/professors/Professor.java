@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "professors")
+@Table(name = "resume_professors")
 public class Professor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
