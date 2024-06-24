@@ -6,6 +6,7 @@
 ├── docker-compose.yml
 ├── mvnw
 ├── mvnw.cmd
+├── note.txt
 ├── pom.xml
 ├── src
 │   ├── main
@@ -13,5 +14,5 @@
 ├── structure.txt
 └── system.properties
 
-3 directories, 8 files
+3 directories, 9 files
 ```
