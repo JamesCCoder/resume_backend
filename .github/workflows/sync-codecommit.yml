@@ -1,0 +1,31 @@
+name: Sync Code to AWS CodeCommit
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync-code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Configure Git for CodeCommit
+        run: |
+          git remote add codecommit https://git-codecommit.us-east-1.amazonaws.com/v1/repos/resume_backend
+          git config --global credential.helper '!aws codecommit credential-helper $@'
+          git config --global credential.UseHttpPath true
+
+      - name: Push to CodeCommit
+        run: |
+          git push codecommit main --force || echo 'Push failed. Please resolve issues manually.'
