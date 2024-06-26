@@ -1,0 +1,13 @@
+# Production configurations (aws)
+
+spring:
+  datasource:
+    url: ${PROD_URL}
+    username: ${PROD_USERNAME}
+    password: ${PROD_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+

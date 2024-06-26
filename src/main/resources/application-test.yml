@@ -1,0 +1,14 @@
+# Production configurations (Heroku)
+
+spring:
+  datasource:
+    url: ${TEST_URL}
+    username: ${TEST_USERNAME}
+    password: ${TEST_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
+
